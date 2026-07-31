@@ -1,0 +1,3 @@
+package com.example.doctoolkit.network;
+import okhttp3.MultipartBody; import okhttp3.RequestBody; import okhttp3.ResponseBody; import retrofit2.Call; import retrofit2.http.*;
+public interface BackendApi { @Multipart @POST("convert") Call<ResponseBody> convert(@Part MultipartBody.Part file,@Part("targetFormat") RequestBody targetFormat); @Multipart @POST("compress") Call<ResponseBody> compress(@Part MultipartBody.Part file); @Multipart @POST("merge") Call<ResponseBody> merge(@Part java.util.List<MultipartBody.Part> files); @Multipart @POST("split") Call<ResponseBody> split(@Part MultipartBody.Part file,@Part("ranges") RequestBody ranges); @Multipart @POST("ocr") Call<ResponseBody> ocr(@Part MultipartBody.Part file,@Part("languages") RequestBody languages); }
